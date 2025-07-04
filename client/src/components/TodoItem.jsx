@@ -4,7 +4,7 @@ import axios from "axios";
 const TodoItem = ({ todo, onDelete, onToggle }) => {
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/todos/${todo._id}`);
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/todos/${todo._id}`);
       onDelete(todo._id);
     } catch (err) {
       console.error("Error deleting todo:", err);
@@ -13,9 +13,10 @@ const TodoItem = ({ todo, onDelete, onToggle }) => {
 
   const handleToggle = async () => {
     try {
-      const updated = await axios.put(`http://localhost:5000/api/todos/${todo._id}`, {
-        done: !todo.done,
-      });
+      const updated = await axios.put(
+        `${process.env.REACT_APP_API_BASE_URL}/api/todos/${todo._id}`,
+        { done: !todo.done }
+      );
       onToggle(updated.data);
     } catch (err) {
       console.error("Error updating todo:", err);

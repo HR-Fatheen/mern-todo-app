@@ -9,7 +9,7 @@ const TodoInput = ({ onAdd }) => {
     if (!task.trim()) return;
 
     try {
-      const res = await axios.post("http://localhost:5000/api/todos", { task });
+      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/todos`, { task });
       onAdd(res.data); // Pass the new todo to parent
       setTask(""); // Clear input
     } catch (err) {

@@ -9,13 +9,14 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
-    try {
-      const res = await axios.get("http://localhost:5000/api/todos");
-      setTodos(res.data);
-    } catch (err) {
-      console.error("Error fetching todos:", err);
-    }
-  };
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/todos`);
+    setTodos(res.data);
+  } catch (err) {
+    console.error("Error fetching todos:", err);
+  }
+};
+
 
   useEffect(() => {
     fetchTodos();
