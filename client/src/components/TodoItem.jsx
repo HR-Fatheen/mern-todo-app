@@ -41,10 +41,31 @@ const TodoItem = ({ todo, onDelete, onToggle }) => {
     >
       <span>{todo.task}</span>
       <div>
-        <button onClick={handleToggle} style={{ marginRight: "10px" }}>
+        <button
+          onClick={handleToggle}
+          style={{
+            marginRight: "10px",
+            backgroundColor: "#007bff",
+            color: "white",
+            border: "none",
+            padding: "6px 12px",
+            borderRadius: "4px",
+            cursor: "pointer"
+          }}
+        >
           {todo.done ? "Undo" : "Done"}
         </button>
-        <button onClick={handleDelete} style={{ color: "red" }}>
+        <button
+          onClick={handleDelete}
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            border: "none",
+            padding: "6px 12px",
+            borderRadius: "4px",
+            cursor: "pointer"
+          }}
+        >
           Delete
         </button>
       </div>
