@@ -28,3 +28,10 @@ mongoose.connect(process.env.MONGO_URI, {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+
+// All other routes like app.use("/api/todos", todoRoutes)
+
+app.get("/", (req, res) => {
+  res.send("✅ MERN Todo App Backend is Running");
+});
+
